@@ -1,0 +1,52 @@
+/* Variables */
+:root {
+    --letterspacing: #{calculateRem(-0.5px)};
+    --letterspacing-large: #{calculateRem(-0.75px)};
+
+    --font-size-text-small: #{calculateRem(14px)};
+    --font-size-text-normal: #{calculateRem(16px)};
+    --font-size-text-large: #{calculateRem(20px)};
+    --font-size-text-xl: #{calculateRem(22px)};
+
+    --font-size-title-display: #{calculateRem(65px)};
+    --font-size-title-xl: #{calculateRem(55px)};
+    --font-size-title-h1: #{calculateRem(45px)};
+    --font-size-title-h2: #{calculateRem(36px)};
+    --font-size-title-h3: #{calculateRem(28px)};
+    --font-size-title-h4: #{calculateRem(22px)};
+
+    @include mobile {
+        --font-size-title-display: #{calculateRem(54px)};
+        --font-size-title-xl: #{calculateRem(50px)};
+        --font-size-title-h1: #{calculateRem(45px)};
+        --font-size-title-h2: #{calculateRem(39px)};
+        --font-size-title-h3: #{calculateRem(32px)};
+        --font-size-title-h4: #{calculateRem(22px)};
+        --font-size-text-large: #{calculateRem(18px)};
+    }
+
+    --container-width: 100%;
+    --container-width-sm: 100%;
+
+    @media (min-width: 576px) {
+        --container-width: 540px;
+        --container-width-sm: 540px;
+    }
+    @include sm {
+        --container-width: 720px;
+        --container-width-sm: 720px;
+    }
+    @include md {
+        --container-width: 960px;
+        --container-width-sm: 980px;
+    }
+    @include lg {
+        // --container-width: 1140px;
+    }
+
+    --border-radius-small: 6px;
+    --border-radius-large: 12px;
+    --box-shadow: 0 10px 45px -7px rgba(0, 0, 0, 0.1);
+    --drop-shadow: drop-shadow(20px 50px 70px rgba(0, 0, 0, 0.14));
+    --default-transition: all 0.285s cubic-bezier(0.79, 0.36, 0.04, 0.69);
+}

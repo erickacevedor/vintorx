@@ -1,0 +1,134 @@
+body.scrolling .nav {
+    @include lg {
+        max-width: var(--container-width);
+        --nav-width: 90%;
+    }
+}
+
+.nav {
+    --nav-width: 90%;
+    position: fixed;
+    top: 10px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+    border-radius: var(--border-radius-large);
+    max-width: var(--nav-width);
+    padding: 10px 20px;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #444;
+
+    transition: var(--default-transition);
+
+    @include lg {
+        --nav-width: 700px;
+        max-width: var(--nav-width);
+    }
+
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .button {
+            @include mobile {
+                display: none;
+            }
+        }
+    }
+
+    &__menu {
+        position: absolute;
+        top: calc(100% + 5px);
+        width: 100%;
+        left: 0;
+        right: 0;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        pointer-events: none;
+        perspective: 2000px;
+
+        &-container {
+            border-radius: var(--border-radius-large);
+            padding: 20px;
+            z-index: 1;
+
+            background: rgb(3, 3, 3);
+            background: linear-gradient(20deg, rgb(3, 3, 3) 57%, rgb(47, 47, 47) 100%);
+            border: 1px solid #444;
+
+            @include md {
+                max-width: 400px;
+            }
+            @include lg {
+                max-width: 300px;
+                margin: 0;
+                // max-width: calc(((100% - var(--container-width)) / 2) + var(--container-width));
+            }
+
+            overflow: hidden;
+            position: relative;
+            white-space: nowrap;
+            flex-grow: 1;
+            // transform: scale(0.95);
+            transform-origin: 100% 0;
+            opacity: 0;
+            will-change: transform, opacity;
+            transition:
+                transform 0.25s,
+                opacity 0.25s;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        li {
+            a {
+                text-decoration: none;
+                color: var(--color-greydark);
+                transition: var(--default-transition);
+
+                &:hover {
+                    color: var(--color-yellow);
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
+
+    .logo {
+        a {
+            display: block;
+            aspect-ratio: 1662/553;
+            width: 150px;
+        }
+    }
+}
+body.toggle-menu .nav__menu .nav__menu-container {
+    -ms-transform: none;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+}

@@ -1,0 +1,68 @@
+@mixin mobile {
+    @media (max-width: #{$screen-sm-max}) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+}
+@mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+}
+@mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+}
+@mixin xl {
+    @media (min-width: #{$screen-xl-min}) {
+        @content;
+    }
+}
+
+@mixin box {
+    float: left;
+    position: relative;
+    width: 100%;
+}
+@mixin opacitybefore($opacity) {
+    background-color: rgba(0, 0, 0, 1);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: $opacity;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+@function calculateRem($size) {
+    $remSize: calc($size / 16px);
+    @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+    font-size: calculateRem($size);
+}
+
+@mixin titles {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @content;
+    }
+}
+
+$screen-sm-max: 768px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+$screen-xl-min: 1900px;
